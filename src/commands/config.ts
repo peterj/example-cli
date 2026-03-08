@@ -1,9 +1,14 @@
+const DEPRECATED_KEYS: Record<string, string> = {
+  "deploy.timeout": "deploy.timeout_seconds",
+};
+
 const CONFIG_STORE: Record<string, string> = {
   region: "us-east-1",
   "instance.type": "t3.medium",
   "instance.count": "3",
   "log.level": "info",
-  "deploy.timeout": "300",
+  "deploy.timeout_seconds": "300",
+  "deploy.strategy": "rolling",
 };
 
 export function configCommand(args: string[]) {
@@ -23,7 +28,11 @@ export function configCommand(args: string[]) {
       console.error("Usage: cloudctl config get <key>");
       process.exit(1);
     }
-    const value = CONFIG_STORE[key];
+    if (DEPRECATED_KEYS[key]) {
+      console.warn(`Warning: '${key}' is deprecated. Use '${DEPRECATED_KEYS[key]}' instead.`);
+    }
+    const resolvedKey = DEPRECATED_KEYS[key] || key;
+    const value = CONFIG_STORE[resolvedKey];
     if (value === undefined) {
       console.error(`Unknown config key: ${key}`);
       process.exit(1);
