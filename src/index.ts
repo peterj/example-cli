@@ -4,6 +4,7 @@ import { deployCommand } from "./commands/deploy.js";
 import { statusCommand } from "./commands/status.js";
 import { configCommand } from "./commands/config.js";
 import { logsCommand } from "./commands/logs.js";
+import { envCommand } from "./commands/env.js";
 
 const COMMANDS: Record<string, (args: string[]) => void> = {
   init: initCommand,
@@ -11,6 +12,7 @@ const COMMANDS: Record<string, (args: string[]) => void> = {
   status: statusCommand,
   config: configCommand,
   logs: logsCommand,
+  env: envCommand,
 };
 
 function main() {
@@ -49,6 +51,7 @@ Commands:
   status        Show deployment status
   config        Manage configuration
   logs          View deployment logs
+  env           Manage environment variables
 
 Options:
   --help        Show help
