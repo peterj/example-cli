@@ -1,0 +1,21 @@
+name: docpr
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  sync-docs:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Sync documentation
+        uses: peterj/docpr@main
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          docs_repo: "peterj/example-cli-docs"
+          docs_repo_token: ${{ secrets.DOCS_REPO_TOKEN }}
+          docs_path: "docs/"

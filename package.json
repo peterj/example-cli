@@ -1,0 +1,20 @@
+{
+  "name": "cloudctl",
+  "version": "0.3.0",
+  "description": "A CLI tool for managing cloud deployments",
+  "type": "module",
+  "main": "src/index.ts",
+  "bin": {
+    "cloudctl": "./bin/cloudctl.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/index.ts"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "tsx": "^4.7.0"
+  },
+  "license": "MIT"
+}
