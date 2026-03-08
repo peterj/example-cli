@@ -5,6 +5,7 @@ import { statusCommand } from "./commands/status.js";
 import { configCommand } from "./commands/config.js";
 import { logsCommand } from "./commands/logs.js";
 import { envCommand } from "./commands/env.js";
+import { rollbackCommand } from "./commands/rollback.js";
 
 const COMMANDS: Record<string, (args: string[]) => void> = {
   init: initCommand,
@@ -13,6 +14,7 @@ const COMMANDS: Record<string, (args: string[]) => void> = {
   config: configCommand,
   logs: logsCommand,
   env: envCommand,
+  rollback: rollbackCommand,
 };
 
 function main() {
@@ -52,6 +54,7 @@ Commands:
   config        Manage configuration
   logs          View deployment logs
   env           Manage environment variables
+  rollback      Roll back to a previous deployment
 
 Options:
   --help        Show help
