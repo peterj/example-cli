@@ -4,6 +4,7 @@ import { deployCommand } from "./commands/deploy.js";
 import { statusCommand } from "./commands/status.js";
 import { configCommand } from "./commands/config.js";
 import { logsCommand } from "./commands/logs.js";
+import { rollbackCommand } from "./commands/rollback.js";
 
 const COMMANDS: Record<string, (args: string[]) => void> = {
   init: initCommand,
@@ -11,6 +12,7 @@ const COMMANDS: Record<string, (args: string[]) => void> = {
   status: statusCommand,
   config: configCommand,
   logs: logsCommand,
+  rollback: rollbackCommand,
 };
 
 function main() {
@@ -49,6 +51,7 @@ Commands:
   status        Show deployment status
   config        Manage configuration
   logs          View deployment logs
+  rollback      Roll back to a previous deployment
 
 Options:
   --help        Show help
