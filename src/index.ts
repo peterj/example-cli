@@ -6,6 +6,7 @@ import { configCommand } from "./commands/config.js";
 import { logsCommand } from "./commands/logs.js";
 import { envCommand } from "./commands/env.js";
 import { rollbackCommand } from "./commands/rollback.js";
+import { testCommand } from "./commands/test.js";
 
 const COMMANDS: Record<string, (args: string[]) => void> = {
   init: initCommand,
@@ -15,6 +16,7 @@ const COMMANDS: Record<string, (args: string[]) => void> = {
   logs: logsCommand,
   env: envCommand,
   rollback: rollbackCommand,
+  test: testCommand,    
 };
 
 function main() {
